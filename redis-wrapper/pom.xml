@@ -1,15 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"  
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example</groupId>  
-  <artifactId>redis-wrapper</artifactId>  
-  <version>1.0.0</version>  
-  <packaging>jar</packaging>
+  <groupId>com.example</groupId>
+  <artifactId>redis-wrapper</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
+
+  <name>Redis Wrapper</name>
+  <description>A simple Redis wrapper using Jedis</description>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
   <dependencies>
+    <!-- Jedis client -->
     <dependency>
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>
@@ -19,13 +28,18 @@
 
   <build>
     <plugins>
+      <!-- Use only the bundle plugin -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>  
-        <artifactId>maven-compiler-plugin</artifactId>  
-        <version>3.10.1</version>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>5.1.2</version>
+        <extensions>true</extensions>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <instructions>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Export-Package>com.example</Export-Package>
+            <Import-Package>*</Import-Package>
+          </instructions>
         </configuration>
       </plugin>
     </plugins>

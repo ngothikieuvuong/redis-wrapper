@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1750320183091
+Build-Jdk: 11.0.27
+Built-By: gitpod
+Bundle-Description: A simple Redis wrapper using Jedis
+Bundle-ManifestVersion: 2
+Bundle-Name: Redis Wrapper
+Bundle-SymbolicName: redis-wrapper
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.example;uses:="redis.clients.jedis";version="1.0.0
+ "
+Import-Package: redis.clients.jedis;version="[3.7,4)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-5.1.1.202006162103
+
